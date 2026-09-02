@@ -1,0 +1,75 @@
+local pantalla = script.Parent
+
+-- BOTÓN INVENTARIO
+local botonInventario = Instance.new("TextButton")
+botonInventario.Name = "BotonInventario"
+botonInventario.Size = UDim2.new(0, 140, 0, 50)
+botonInventario.Position = UDim2.new(0, 15, 0.5, -85)
+botonInventario.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+botonInventario.TextColor3 = Color3.fromRGB(255, 255, 255)
+botonInventario.Text = "📦 INVENTARIO"
+botonInventario.TextScaled = true
+botonInventario.Font = Enum.Font.GothamBold
+botonInventario.Parent = pantalla
+
+local esquina = Instance.new("UICorner")
+esquina.CornerRadius = UDim.new(0, 12)
+esquina.Parent = botonInventario
+
+local borde = Instance.new("UIStroke")
+borde.Color = Color3.fromRGB(255, 255, 255)
+borde.Thickness = 2
+borde.Parent = botonInventario
+
+-- VENTANA
+local ventana = Instance.new("Frame")
+ventana.Size = UDim2.new(0, 330, 0, 350)
+ventana.Position = UDim2.new(0.5, -165, 0.5, -175)
+ventana.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+ventana.Visible = false
+ventana.Parent = pantalla
+
+local ventanaCorner = Instance.new("UICorner")
+ventanaCorner.CornerRadius = UDim.new(0, 15)
+ventanaCorner.Parent = ventana
+
+local ventanaBorde = Instance.new("UIStroke")
+ventanaBorde.Color = Color3.fromRGB(255, 255, 255)
+ventanaBorde.Thickness = 2
+ventanaBorde.Parent = ventana
+
+-- TÍTULO
+local titulo = Instance.new("TextLabel")
+titulo.Size = UDim2.new(1, -60, 0, 55)
+titulo.Position = UDim2.new(0, 20, 0, 10)
+titulo.BackgroundTransparency = 1
+titulo.TextColor3 = Color3.fromRGB(255, 255, 255)
+titulo.Text = "📦 INVENTARIO"
+titulo.TextScaled = true
+titulo.Font = Enum.Font.GothamBold
+titulo.Parent = ventana
+
+-- CERRAR
+local cerrar = Instance.new("TextButton")
+cerrar.Size = UDim2.new(0, 40, 0, 40)
+cerrar.Position = UDim2.new(1, -50, 0, 10)
+cerrar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+cerrar.TextColor3 = Color3.fromRGB(255, 255, 255)
+cerrar.Text = "X"
+cerrar.TextScaled = true
+cerrar.Font = Enum.Font.GothamBold
+cerrar.Parent = ventana
+
+local cerrarCorner = Instance.new("UICorner")
+cerrarCorner.CornerRadius = UDim.new(0, 10)
+cerrarCorner.Parent = cerrar
+
+-- ABRIR
+botonInventario.MouseButton1Click:Connect(function()
+	ventana.Visible = true
+end)
+
+-- CERRAR
+cerrar.MouseButton1Click:Connect(function()
+	ventana.Visible = false
+end)
